@@ -38,3 +38,5 @@ def test_priority_queue():
     assert queue.is_empty() == True
 
     print("All priority queue tests pass")
+
+test_priority_queue()

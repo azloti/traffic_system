@@ -7,14 +7,16 @@ class Graph:
     def add_vertex(self, vertex):
         if vertex not in self.vertices:
             self.vertices[vertex] = []
-        else:
-            raise ValueError("Vertex already in graph")
 
     # Add an edge between two vertices
     def add_edge(self, vertex1, vertex2):
+        # Make sure the vertices are in the graph
+        self.add_vertex(vertex1)
+        self.add_vertex(vertex2)
+        
+
         if vertex1 in self.vertices and vertex2 in self.vertices:
             self.vertices[vertex1].append(vertex2)
-            self.vertices[vertex2].append(vertex1)
         else:
             raise ValueError("One or more vertices not in graph")
 

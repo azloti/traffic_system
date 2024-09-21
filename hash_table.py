@@ -34,3 +34,16 @@ class HashTable:
     def display(self):
         for index, items in enumerate(self.table):
             print(f"Index {index}: {items}")
+
+    def resize(self, new_size):
+        # Create a new hash table with the new size
+        new_table = HashTable(new_size)
+
+        # Re-insert all key-value pairs into the new table
+        for items in self.table:
+            for key, value in items:
+                new_table.insert(key, value)
+
+        # Update the hash table with the new size
+        self.size = new_size
+        self.table = new_table.table
